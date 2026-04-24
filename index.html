@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SocFlows | Premium Property Lead Generation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* ==========================================================================
+           1. CSS VARIABLES, RESET & GLOBAL STYLES
+           ========================================================================== */
+      :root {
+        --primary: #2563eb;
+        --primary-dark: #1e40af;
+        --accent: #25d366;
+        --bg-light: #f8fafc;
+        --text-dark: #0f172a;
+        --text-muted: #64748b;
+        --white: #ffffff;
+
+        --glass-bg: rgba(255, 255, 255, 0.6);
+        --glass-border: rgba(255, 255, 255, 0.3);
+        --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.06);
+        --shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-image: radial-gradient(
+            at 10% 10%,
+            rgba(37, 99, 235, 0.03) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 90% 90%,
+            rgba(37, 211, 102, 0.03) 0px,
+            transparent 50%
+          );
+        background-attachment: fixed;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition);
+      }
+      ul {
+        list-style: none;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* ==========================================================================
+           2. TYPOGRAPHY & UTILITIES
+           ========================================================================== */
+      h1,
+      h2,
+      h3,
+      h4 {
+        line-height: 1.2;
+        font-weight: 700;
+        color: var(--text-dark);
+        letter-spacing: -0.5px;
+      }
+      p {
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .py-section {
+        padding: 100px 0;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        border: none;
+        font-size: 1rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .btn-primary {
+        background: var(--text-dark);
+        color: var(--white);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px) scale(1.02);
+        background: var(--primary);
+        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+      }
+      .btn-whatsapp {
+        background: var(--accent);
+        color: var(--white);
+      }
+      .btn-whatsapp:hover {
+        transform: translateY(-3px) scale(1.02);
+        background: #1ebc5c;
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+      }
+
+      .text-gradient {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--accent) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-soft);
+        transition: var(--transition);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .delay-1 {
+        transition-delay: 0.1s;
+      }
+      .delay-2 {
+        transition-delay: 0.2s;
+      }
+
+      /* ==========================================================================
+           3. NAVBAR
+           ========================================================================== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 28px 0;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+      .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 16px 0;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      }
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand-logo {
+        height: 20px;
+        width: auto;
+        transition: var(--transition);
+      }
+      .navbar:not(.scrolled) .brand-logo {
+        filter: brightness(0) invert(1);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .nav-link-item {
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 500;
+        font-size: 0.95rem;
+        position: relative;
+        padding-bottom: 5px;
+      }
+
+      .nav-link-item::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--white);
+        transition: width 0.3s ease-in-out;
+      }
+
+      .nav-link-item:hover {
+        color: white;
+      }
+      .nav-link-item:hover::after {
+        width: 100%;
+      }
+
+      .navbar.scrolled .nav-link-item {
+        color: var(--text-muted);
+      }
+      .navbar.scrolled .nav-link-item::after {
+        background-color: var(--primary);
+      }
+      .navbar.scrolled .nav-link-item:hover {
+        color: var(--primary);
+      }
+
+      .nav-cta {
+        background: rgba(255, 255, 255, 0.15) !important;
+        color: white !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        padding: 9px 22px;
+        border-radius: 50px;
+        backdrop-filter: blur(8px);
+        transition: var(--transition);
+      }
+      .nav-cta:hover {
+        background: white !important;
+        color: var(--primary) !important;
+      }
+      .navbar.scrolled .nav-cta {
+        background: var(--primary) !important;
+        color: white !important;
+        border-color: var(--primary) !important;
+      }
+      .navbar.scrolled .nav-cta:hover {
+        background: var(--primary-dark) !important;
+      }
+
+      .mobile-toggle {
+        display: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+      .navbar.scrolled .mobile-toggle {
+        color: var(--text-dark);
+      }
+
+      /* ==========================================================================
+           4. HERO SECTION
+           ========================================================================== */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding-bottom: 60px;
+      }
+
+      .hero-bg-img {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-image: url("../img/heri1.jpg");
+        background-size: cover;
+        background-position: center 55%;
+        background-repeat: no-repeat;
+        transform: scale(1.06);
+        transition: transform 7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .hero.loaded .hero-bg-img {
+        transform: scale(1);
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(
+          175deg,
+          rgba(5, 10, 24, 0.52) 0%,
+          rgba(5, 10, 24, 0.3) 30%,
+          rgba(5, 10, 24, 0.6) 70%,
+          rgba(5, 10, 24, 0.92) 100%
+        );
+      }
+
+      .hero-tint {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+          130deg,
+          rgba(37, 99, 235, 0.22) 0%,
+          transparent 45%,
+          rgba(37, 211, 102, 0.12) 100%
+        );
+      }
+
+      .hero-grain {
+        position: flex;
+        inset: 0;
+        z-index: 3;
+        opacity: 0.04;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.90' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        max-width: 780px;
+        padding-top: 92px;
+        padding-bottom: 0px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.65rem;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 6px 16px;
+        border-radius: 100px;
+        margin-bottom: 25px;
+        opacity: 0;
+        transform: translateY(18px);
+        animation: fadeUp 0.8s 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .hero-badge .live-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+        animation: livePulse 2.2s ease-in-out infinite;
+      }
+      @keyframes livePulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+        }
+        60% {
+          box-shadow: 0 0 0 6px rgba(37, 211, 102, 0);
+        }
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 4.8vw, 4.2rem);
+        color: white;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        margin-bottom: 24px;
+        opacity: 0;
+        transform: translateY(24px);
+        animation: fadeUp 0.9s 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .hero h1 .shimmer-text,
+      .story-text h2 .shimmer-text,
+      .about-text h2 .shimmer-text {
+        background: linear-gradient(
+          90deg,
+          #93c5fd,
+          #6ee7b7,
+          #60a5fa,
+          #34d399,
+          #93c5fd
+        );
+        background-size: 300% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShimmer 5s linear infinite;
+      }
+      @keyframes textShimmer {
+        0% {
+          background-position: 0% center;
+        }
+        100% {
+          background-position: 300% center;
+        }
+      }
+
+      .hero-sub {
+        font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 540px;
+        line-height: 1.7;
+        margin-bottom: 28px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.9s 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      .hero-cta-area {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.9s 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .btn-gradient {
+        display: inline-flex;
+        align-items: center;
+        gap: 13px;
+        padding: 18px 38px;
+        border-radius: 100px;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        color: white;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #2563eb 0%, #059669 100%);
+        box-shadow: 0 6px 32px rgba(37, 99, 235, 0.4),
+          0 2px 8px rgba(0, 0, 0, 0.15);
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .btn-gradient::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -120%;
+        width: 55%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.25),
+          transparent
+        );
+        transition: left 0.55s ease;
+      }
+      .btn-gradient:hover::before {
+        left: 170%;
+      }
+      .btn-gradient:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 14px 48px rgba(37, 99, 235, 0.5),
+          0 4px 16px rgba(0, 0, 0, 0.15);
+      }
+      .btn-gradient:active {
+        transform: translateY(0) scale(0.99);
+      }
+      .btn-gradient .arrow-icon {
+        font-size: 1rem;
+        display: inline-block;
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .btn-gradient:hover .arrow-icon {
+        transform: translateX(5px);
+      }
+
+      .hero-microcopy {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-top: 24px;
+        margin-bottom: 10px;
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 400;
+        opacity: 0;
+        animation: fadeUp 0.9s 0.82s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .hero-microcopy i {
+        color: var(--accent);
+      }
+
+      .hero-scroll-cue {
+        position: absolute;
+        bottom: 50px;
+        right: 5%;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+        animation: fadeUp 1s 1.2s ease forwards;
+      }
+      .hero-scroll-cue .sc-line {
+        width: 1px;
+        height: 38px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.35),
+          transparent
+        );
+        animation: scrollLinePulse 2s ease-in-out infinite;
+      }
+      @keyframes scrollLinePulse {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scaleY(1);
+          transform-origin: top;
+        }
+        50% {
+          opacity: 0.9;
+          transform: scaleY(1.4);
+        }
+      }
+      .hero-scroll-cue span {
+        font-size: 0.62rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.28);
+        writing-mode: vertical-rl;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ==========================================================================
+           4.5 ABOUT US SECTION (Tentang Kami & Stats)
+           ========================================================================== */
+      .about-section {
+        background-color: var(--white);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding-bottom: 140px; /* Ruang untuk absolute stat block */
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 60px;
+        align-items: center;
+      }
+      .about-image-wrapper {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+      }
+      .about-image-wrapper img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+        border-radius: var(--radius-lg);
+        background-color: #e2e8f0;
+      }
+      .about-image-wrapper::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        right: -20px;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(
+          circle,
+          rgba(37, 99, 235, 0.1) 0%,
+          transparent 70%
+        );
+        z-index: -1;
+      }
+      .about-text h3 {
+        color: rgb(rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0));
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+      .about-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: var(--text-dark);
+        background: linear-gradient(to right, var(--text-dark), var(--primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .about-text p {
+        margin-bottom: 20px;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+      }
+
+      /* === STATS BLOCK DIKECILKAN & DITAMBAH SHADOW DEFAULT === */
+      .about-stats-container {
+        position: absolute;
+        bottom: 20px; /* Disesuaikan agar posisinya pas di tengah garis batas */
+        left: 48%;
+        transform: translateX(-50%);
+        width: auto;
+        max-width: 750px; /* Dikecilkan drastis agar tidak terlalu lebar/raksasa */
+        z-index: 10;
+      }
+
+      .about-stats-container::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        border-radius: calc(var(--radius-lg) + 2px);
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--accent),
+          var(--primary)
+        );
+        background-size: 200% 200%;
+        z-index: 0;
+        opacity: 0.3; /* Membuat shadow transparan lebih terlihat saat normal */
+        transition: var(--transition);
+        animation: gradientBG 5s ease infinite;
+      }
+
+      .about-stats-container:hover::before {
+        opacity: 1;
+        filter: blur(12px);
+      }
+
+      .about-stats-block {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: var(--radius-lg);
+        padding: 15px 10px; /* Padding dalam dikecilkan */
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Tambahan drop-shadow default agar kontras */
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: center; /* Dipusatkan agar tidak merenggang berlebihan */
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 24px; /* Jarak antar stat */
+        transition: var(--transition);
+      }
+
+      .about-stats-container:hover .about-stats-block {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
+      }
+
+      .astat {
+        padding: 10px;
+        text-align: center;
+        min-width: 100px; /* Menjaga ukuran tidak terlalu melar */
+      }
+      .astat .hn {
+        font-size: 1.7rem; /* Angka dikecilkan */
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        line-height: 1;
+        margin-bottom: 5px;
+        display: block;
+        background: linear-gradient(90deg, #2563eb, #25d366, #2563eb);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShimmer 3s linear infinite;
+      }
+      .astat .hl {
+        font-size: 0.85rem; /* Teks label dikecilkan */
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      /* ==========================================================================
+           5. PROBLEM & SOLUTION
+           ========================================================================== */
+      .story-block {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 70px;
+        align-items: center;
+      }
+      .story-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+        background: linear-gradient(to right, var(--text-dark), var(--primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .story-text p {
+        margin-bottom: 20px;
+      }
+      .story-card {
+        padding: 40px;
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-hover);
+      }
+      .benefit-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 25px;
+      }
+      .benefit-list li:last-child {
+        margin-bottom: 0;
+      }
+      .benefit-list i {
+        color: var(--accent);
+        font-size: 1.2rem;
+        margin-top: 4px;
+        background: rgba(37, 211, 102, 0.1);
+        padding: 12px;
+        border-radius: 50%;
+      }
+      .benefit-list h4 {
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+      }
+      .benefit-list p {
+        font-size: 0.95rem;
+      }
+
+      /* ==========================================================================
+           6. FEATURE CARDS
+           ========================================================================== */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
+        margin-top: 80px;
+      }
+      .feature-card {
+        padding: 40px 30px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .feature-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: var(--shadow-hover);
+        border-color: rgba(37, 99, 235, 0.1);
+      }
+      .feature-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: linear-gradient(
+          to top,
+          rgba(37, 99, 235, 0.02),
+          transparent
+        );
+        transition: var(--transition);
+        z-index: -1;
+      }
+      .feature-card:hover::after {
+        height: 50%;
+      }
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.1),
+          rgba(37, 99, 235, 0.05)
+        );
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 25px;
+        transition: var(--transition);
+      }
+      .feature-card:hover .feature-icon {
+        background: var(--primary);
+        color: var(--white);
+        transform: scale(1.1) rotate(-5deg);
+      }
+      .feature-card h3 {
+        margin-bottom: 15px;
+        font-size: 1.25rem;
+      }
+      .feature-card p {
+        font-size: 0.95rem;
+      }
+
+      /* ==========================================================================
+           6.5 SOCIAL PROOF / TESTIMONIALS
+           ========================================================================== */
+      .testi-section {
+        background-color: var(--white);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .testi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+      .testi-card {
+        background: var(--bg-light);
+        padding: 40px 30px;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        position: relative;
+      }
+      .testi-card::before {
+        content: "\201C";
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 4rem;
+        color: rgba(37, 99, 235, 0.1);
+        font-family: Georgia, serif;
+        line-height: 1;
+      }
+      .testi-text {
+        font-size: 1.05rem;
+        font-style: italic;
+        color: var(--text-dark);
+        margin-bottom: 25px;
+        position: relative;
+        z-index: 1;
+      }
+      .testi-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .testi-author-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #cbd5e1;
+        object-fit: cover;
+      }
+      .testi-author-info h4 {
+        font-size: 1rem;
+        margin-bottom: 2px;
+      }
+      .testi-author-info p {
+        font-size: 0.85rem;
+        color: var(--primary);
+        margin: 0;
+      }
+
+      /* ==========================================================================
+           7. HOW IT WORKS
+           ========================================================================== */
+      .section-header {
+        text-align: center;
+        margin-bottom: 70px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .section-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        position: relative;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 40px;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--primary) 0%,
+          var(--accent) 100%
+        );
+        opacity: 0.15;
+        z-index: 0;
+      }
+      .step {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+      .step-number {
+        width: 80px;
+        height: 80px;
+        background: var(--white);
+        border: 2px solid var(--glass-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 0 auto 25px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+        position: relative;
+      }
+      .step-number::after {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border-radius: 50%;
+        border: 2px solid var(--primary);
+        opacity: 0;
+        scale: 0.8;
+        transition: var(--transition);
+      }
+      .step:hover .step-number {
+        transform: scale(1.05);
+        border-color: transparent;
+        box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2);
+      }
+      .step:hover .step-number::after {
+        opacity: 0.1;
+        scale: 1;
+      }
+      .step-number span {
+        background: linear-gradient(135deg, var(--primary) 0%, #6366f1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .step h4 {
+        margin-bottom: 10px;
+        font-size: 1.15rem;
+      }
+      .step p {
+        font-size: 0.95rem;
+      }
+
+      /* ==========================================================================
+           8. OFFER SECTION 
+           ========================================================================== */
+      .offer-container {
+        position: relative;
+        padding: 20px;
+      }
+
+      .offer-block {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: var(--radius-lg);
+        padding: 80px 50px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .offer-container::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: calc(var(--radius-lg) + 5px);
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--accent),
+          var(--primary)
+        );
+        background-size: 200% 200%;
+        z-index: 0;
+        opacity: 0.2;
+        transition: var(--transition);
+        animation: gradientBG 5s ease infinite;
+      }
+
+      .offer-container:hover::before {
+        opacity: 1;
+        filter: blur(15px);
+      }
+
+      .offer-container:hover .offer-block {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 70px rgba(37, 99, 235, 0.1);
+      }
+
+      .offer-tag {
+        display: inline-block;
+        padding: 8px 20px;
+        background: rgba(37, 99, 235, 0.1);
+        color: var(--primary);
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .offer-block h2 {
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        max-width: 850px;
+        margin: 0 auto 30px;
+        line-height: 1.2;
+        color: var(--text-dark);
+        position: relative;
+      }
+      .offer-metric {
+        font-size: 1.3em;
+        font-weight: 800;
+        display: block;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--accent) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+        letter-spacing: -2px;
+      }
+      .offer-block p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 40px;
+      }
+
+      /* ==========================================================================
+           9. TRUST / WHY US
+           ========================================================================== */
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+      }
+      .trust-item {
+        text-align: center;
+        padding: 40px 25px;
+        background: var(--white);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-soft);
+        border: 1px solid rgba(0, 0, 0, 0.02);
+        transition: var(--transition);
+      }
+      .trust-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+      }
+      .trust-item i {
+        font-size: 2.2rem;
+        color: #1e293b;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+      .trust-item h4 {
+        font-size: 1.1rem;
+      }
+
+      /* ==========================================================================
+           10. FAQ ACCORDION
+           ========================================================================== */
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        margin-bottom: 15px;
+        background: var(--white);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.02);
+      }
+      .faq-question {
+        width: 100%;
+        text-align: left;
+        padding: 22px 25px;
+        background: none;
+        border: none;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: var(--transition);
+      }
+      .faq-question:hover {
+        color: var(--primary);
+      }
+      .faq-icon {
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+        color: var(--text-muted);
+      }
+      .faq-question.active {
+        color: var(--primary);
+        background: rgba(37, 99, 235, 0.01);
+      }
+      .faq-question.active .faq-icon {
+        transform: rotate(180deg);
+        color: var(--primary);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #fafafa;
+      }
+      .faq-answer p {
+        padding: 5px 25px 25px;
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      /* ==========================================================================
+           11. FOOTER
+           ========================================================================== */
+      footer {
+        background: #050a18;
+        color: rgba(255, 255, 255, 0.8);
+        padding: 60px 0 30px;
+        margin-top: 60px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-about p {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 15px;
+        max-width: 300px;
+      }
+
+      .footer-title {
+        color: white;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.95rem;
+        transition: var(--transition);
+        width: fit-content;
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+        padding-left: 5px;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .contact-item i {
+        color: var(--accent);
+        margin-top: 4px;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      /* ==========================================================================
+           12. RESPONSIVE
+           ========================================================================== */
+      @media (max-width: 1024px) {
+        .story-block,
+        .about-grid {
+          gap: 40px;
+        }
+      }
+      @media (max-width: 992px) {
+        .py-section {
+          padding: 80px 0;
+        }
+        .story-block,
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-image-wrapper img {
+          height: 300px;
+        }
+        .timeline {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px;
+        }
+        .timeline::before {
+          display: none;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .about-section {
+          padding-bottom: 120px;
+        }
+      }
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: rgba(5, 10, 24, 0.97);
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          padding: 30px;
+          gap: 20px;
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+          transition: clip-path 0.4s ease-in-out;
+        }
+        .nav-links.nav-active {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        .nav-links a {
+          color: rgba(255, 255, 255, 0.8) !important;
+          width: 100%;
+          text-align: center;
+          padding: 10px;
+        }
+        .navbar.scrolled .nav-links {
+          background: white;
+        }
+        .navbar.scrolled .nav-links a {
+          color: var(--text-dark) !important;
+        }
+        .mobile-toggle {
+          display: block;
+        }
+
+        .hero {
+          padding-bottom: 60px;
+          min-height: 80vh;
+        }
+        .hero h1 {
+          font-size: 1.8rem;
+          letter-spacing: -0.5px;
+        }
+        .hero-sub {
+          font-size: 0.85rem;
+        }
+        .hero-scroll-cue {
+          display: none;
+        }
+        .hero-content {
+          padding-bottom: 20px;
+        }
+
+        .about-section {
+          padding-bottom: 240px;
+        }
+        .about-stats-block {
+          flex-direction: column;
+          gap: 10px;
+          padding: 15px;
+        }
+        .astat {
+          padding: 12px 10px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+          width: 100%;
+          min-width: auto;
+        }
+        .astat:last-child {
+          border-bottom: none;
+        }
+
+        .offer-block {
+          padding: 50px 25px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          text-align: center;
+        }
+        .footer-about p {
+          margin: 15px auto 0;
+        }
+        .footer-links {
+          align-items: center;
+        }
+        .footer-contact {
+          align-items: center;
+        }
+        .contact-item {
+          justify-content: center;
+          text-align: left;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+      }
+      @media (max-width: 480px) {
+        .timeline,
+        .testi-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 1.6rem;
+          letter-spacing: 0;
+        }
+        .btn-gradient {
+          width: 100%;
+          justify-content: center;
+          font-size: 0.95rem;
+          padding: 14px 20px;
+        }
+        .hero-badge {
+          font-size: 0.55rem;
+          letter-spacing: 0.05em;
+          padding: 5px 10px;
+        }
+        .about-section {
+          padding-bottom: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+      <div class="container nav-container">
+        <a href="#" class="logo">
+          <img
+            src="../img/LinkedIn-Banner.png"
+            alt="SocFlows Logo"
+            class="brand-logo"
+          />
+        </a>
+        <div class="mobile-toggle" id="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home" class="nav-link-item">Home</a></li>
+          <li><a href="#about" class="nav-link-item">Tentang Kami</a></li>
+          <li><a href="#solution" class="nav-link-item">Solusi</a></li>
+          <li><a href="#how-it-works" class="nav-link-item">Alur</a></li>
+          <li><a href="#faq" class="nav-link-item">FAQ</a></li>
+          <li><a href="#cta" class="nav-cta">Konsultasi Gratis</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="hero" id="home">
+      <div class="hero-bg-img"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-tint"></div>
+      <div class="hero-grain"></div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="live-dot"></span>
+            Khusus Pemilik Properti & Developer — Yogyakarta
+          </div>
+
+          <h1>
+            Hasilkan Inkuiri<br />
+            Pembeli <span class="shimmer-text">Serius & Terukur</span><br />
+            untuk Properti Anda
+          </h1>
+
+          <p class="hero-sub">
+            Iklan digital tertarget + funnel WhatsApp otomatis yang mengubah
+            scroll media sosial menjadi calon pembeli siap survei — lebih cepat,
+            lebih hemat, lebih terukur.
+          </p>
+
+          <div class="hero-cta-area">
+            <a href="#cta" class="btn-gradient">
+              <!-- <i class="fab fa-whatsapp"></i> -->
+              Amankan Slot Konsultasi
+              <!-- <span class="arrow-icon">→</span> -->
+            </a>
+          </div>
+
+          
+        </div>
+      </div>
+
+      <div class="hero-scroll-cue">
+        <div class="sc-line"></div>
+        <span>scroll</span>
+      </div>
+    </header>
+
+    <section
+      class="py-section about-section"
+      id="about"
+      style="position: relative"
+    >
+      <div class="container about-grid">
+        <div class="about-image-wrapper reveal">
+          <img
+            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80"
+            alt="Tim SocFlows"
+          />
+        </div>
+
+        <div class="about-text reveal delay-1">
+          <h3>Siapa SocFlows?</h3>
+          <h2>
+            Mitra Digital Khusus
+            <span class="shimmer-text">Industri Properti</span>
+          </h2>
+          <p>
+            Kami memahami bahwa menjual properti tidak sama dengan menjual
+            produk retail biasa. Diperlukan strategi pendekatan khusus untuk
+            menyaring audiens window-shopper dan menemukan pembeli dengan
+            intensi tinggi.
+          </p>
+          <p>
+            Sebagai agensi yang berfokus penuh pada niche properti di wilayah
+            Yogyakarta dan sekitarnya, misi kami sederhana:
+            <strong
+              >Mengubah properti Anda dari sekadar listing pasif menjadi
+              investasi yang cepat terjual.</strong
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="about-stats-container reveal delay-2">
+        <div class="about-stats-block">
+          <div class="astat">
+            <span class="hn">10+</span>
+            <span class="hl">Inkuiri dalam 30 Hari</span>
+          </div>
+          <div class="astat">
+            <span class="hn">3×</span>
+            <span class="hl">Siklus Jual Lebih Cepat</span>
+          </div>
+          <div class="astat">
+            <span class="hn">100%</span>
+            <span class="hl">Fokus Niche Properti</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section container" id="cta">
+      <div class="offer-container reveal">
+        <div class="offer-block">
+          <span class="offer-tag">Garansi Performa</span>
+          <h2>
+            <span class="offer-metric">10 Inkuiri Serius</span>
+            Dalam 30 Hari Pertama—Atau Biaya Jasa Bulan Depan
+            <span class="text-gradient">Gratis</span>.
+          </h2>
+          <p>
+            Kami sangat percaya diri dengan sistem kami. Ini bukan sekadar
+            janji, tapi komitmen hasil nyata bagi bisnis properti Anda.
+          </p>
+          <a
+            href="https://wa.me/YOUR_NUMBER"
+            class="btn btn-primary"
+            style="padding: 16px 35px; font-size: 1.1rem"
+            >Ambil Penawaran Ini</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section container" id="solution">
+      <div class="story-block">
+        <div class="story-text reveal">
+          <h2>
+            Berhenti Berharap pada Listing Organik yang
+            <span class="text-gradient">Lambat</span>.
+          </h2>
+          <p>
+            Mengandalkan postingan media sosial biasa atau portal properti
+            gratisan membuat Anda menunggu tanpa kepastian. Anda kehabisan
+            waktu, dan unit properti Anda tak kunjung terjual.
+          </p>
+          <p>
+            <strong>SocFlows hadir membawa sistem:</strong> Kami secara proaktif
+            menargetkan audiens di Yogyakarta & sekitarnya yang memiliki minat
+            dan kemampuan beli, mengarahkan mereka langsung ke WhatsApp Anda.
+          </p>
+        </div>
+
+        <div class="story-card glass-card reveal delay-1">
+          <ul class="benefit-list">
+            <li>
+              <i class="fas fa-bullseye"></i>
+              <div>
+                <h4>Target Presisi, Inkuiri Valid</h4>
+                <p>
+                  Bukan sekadar 'likes', tapi pesan dari orang yang benar-benar
+                  mencari properti.
+                </p>
+              </div>
+            </li>
+            <li>
+              <i class="fab fa-whatsapp"></i>
+              <div>
+                <h4>Langsung ke WhatsApp Inbox</h4>
+                <p>
+                  Proses negosiasi lebih cepat & personal di platform chat utama
+                  Indonesia.
+                </p>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-history"></i>
+              <div>
+                <h4>Siklus Penjualan Lebih Pendek</h4>
+                <p>
+                  Aliran leads yang konsisten mempercepat jadwal survei lokasi
+                  dan closing.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card glass-card reveal">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Skalabilitas Prediktif</h3>
+          <p>
+            Ubah pencarian pembeli menjadi sistem yang bisa diprediksi, bukan
+            tebak-tebakan.
+          </p>
+        </div>
+        <div class="feature-card glass-card reveal delay-1">
+          <div class="feature-icon"><i class="fas fa-funnel-dollar"></i></div>
+          <h3>WhatsApp Funnel Optimal</h3>
+          <p>
+            Laman landas yang didesain khusus untuk konversi tinggi ke chat
+            WhatsApp.
+          </p>
+        </div>
+        <div class="feature-card glass-card reveal delay-2">
+          <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h3>Keahlian Pasar Lokal</h3>
+          <p>
+            Paham psikologi pembeli properti di wilayah Yogyakarta dan
+            sekitarnya.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section container" id="how-it-works">
+      <div class="section-header reveal">
+        <h2>Kerangka Kerja SocFlows</h2>
+        <p>
+          Proses transparan dan terukur untuk membawa unit Anda dari 'Tersedia'
+          menjadi 'Terjual'.
+        </p>
+      </div>
+      <div class="timeline">
+        <div class="step reveal">
+          <div class="step-number"><span>1</span></div>
+          <h4>Riset & Analisis</h4>
+          <p>
+            Kami membedah USP properti Anda dan profil target pembeli ideal.
+          </p>
+        </div>
+        <div class="step reveal delay-1">
+          <div class="step-number"><span>2</span></div>
+          <h4>Setup Kampanye</h4>
+          <p>
+            Membangun funnel WhatsApp dan membuat materi iklan yang menarik.
+          </p>
+        </div>
+        <div class="step reveal delay-1">
+          <div class="step-number"><span>3</span></div>
+          <h4>Peluncuran Iklan</h4>
+          <p>
+            Iklan ditayangkan secara presisi di Meta Ads (FB/IG) & Google
+            Networks.
+          </p>
+        </div>
+        <div class="step reveal delay-2">
+          <div class="step-number"><span>4</span></div>
+          <h4>Optimasi & Laporan</h4>
+          <p>Pemantauan harian dan optimasi mingguan untuk performa terbaik.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section testi-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Apa Kata Mitra Kami?</h2>
+          <p>Bukti nyata dari strategi pemasaran properti yang terukur.</p>
+        </div>
+
+        <div class="testi-grid">
+          <div class="testi-card reveal">
+            <p class="testi-text">
+              "Sebelumnya sangat sulit mencari pembeli yang benar-benar serius
+              survei lokasi. Semenjak dibantu SocFlows, tim sales kami sekarang
+              kewalahan membalas chat WA dari leads berkualitas."
+            </p>
+            <div class="testi-author">
+              <div class="testi-author-img"></div>
+              <div class="testi-author-info">
+                <h4>Bpk. Budi Santoso</h4>
+                <p>Developer Perumahan, Bantul</p>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal delay-1">
+            <p class="testi-text">
+              "Sistem mereka transparan. CPL (Cost per Lead) sangat terukur dan
+              yang terpenting, konversi ke jadwal kunjungan lokasi meningkat 3x
+              lipat dibanding iklan kami sebelumnya."
+            </p>
+            <div class="testi-author">
+              <div class="testi-author-img"></div>
+              <div class="testi-author-info">
+                <h4>Ibu Kartika</h4>
+                <p>Pemilik Properti Independen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section container" id="cta">
+      <div class="offer-container reveal">
+        <div class="offer-block">
+          <span class="offer-tag">Garansi Performa</span>
+          <h2>
+            <span class="offer-metric">10 Inkuiri Serius</span>
+            Dalam 30 Hari Pertama—Atau Biaya Jasa Bulan Depan
+            <span class="text-gradient">Gratis</span>.
+          </h2>
+          <p>
+            Kami sangat percaya diri dengan sistem kami. Ini bukan sekadar
+            janji, tapi komitmen hasil nyata bagi bisnis properti Anda.
+          </p>
+          <a
+            href="https://wa.me/YOUR_NUMBER"
+            class="btn btn-primary"
+            style="padding: 16px 35px; font-size: 1.1rem"
+            >Ambil Penawaran Ini</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section container" id="faq">
+      <div class="section-header reveal">
+        <h2>Pertanyaan Umum</h2>
+      </div>
+      <div class="faq-container reveal delay-1">
+        <div class="faq-item">
+          <button class="faq-question">
+            Apakah saya harus memiliki website sendiri?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Tidak perlu. Dalam layanan kami, kami sudah menyertakan pembuatan
+              landing page khusus yang didesain untuk konversi tinggi, langsung
+              terhubung ke WhatsApp Anda.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Berapa anggaran iklan yang direkomendasikan?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Anggaran iklan dibayarkan langsung ke platform (Meta/Google).
+              Untuk hasil optimal di area lokal (seperti Yogya), kami
+              merekomendasikan anggaran mulai dari Rp 100.000 - Rp 150.000 per
+              hari agar algoritma bekerja maksimal.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Siapa yang menangani chat WhatsApp yang masuk?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Chat akan masuk langsung ke nomor WhatsApp Anda atau tim sales
+              Anda. Tugas kami adalah membawa leads potensial ke 'pintu'
+              WhatsApp Anda, dan tim Anda yang melakukan closing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <a href="#" class="logo">
+              <img
+                src="../img/LinkedIn-Banner.png"
+                alt="SocFlows Logo"
+                class="brand-logo"
+                style="filter: brightness(0) invert(1)"
+              />
+            </a>
+            <p>
+              Agensi spesialis pemasaran properti di Indonesia. Mengubah listing
+              pasif menjadi inkuiri aktif melalui teknologi digital.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-title">Navigasi</h4>
+            <div class="footer-links">
+              <a href="#home">Home</a>
+              <a href="#about">Tentang Kami</a>
+              <a href="#solution">Solusi</a>
+              <a href="#how-it-works">Alur Kerja</a>
+              <a href="#faq">FAQ</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="footer-title">Hubungi Kami</h4>
+            <div class="footer-contact">
+              <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <span>+62 812 3456 7890</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>hello@socflows.com</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Yogyakarta, Indonesia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 SocFlows. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(
+          () => document.querySelector(".hero").classList.add("loaded"),
+          80
+        );
+
+        const navbar = document.getElementById("navbar");
+        window.addEventListener(
+          "scroll",
+          () => {
+            navbar.classList.toggle("scrolled", window.scrollY > 60);
+          },
+          { passive: true }
+        );
+
+        const mobileToggle = document.getElementById("mobile-toggle");
+        const navLinks = document.getElementById("nav-links");
+
+        const toggleMenu = () => {
+          navLinks.classList.toggle("nav-active");
+          const icon = mobileToggle.querySelector("i");
+          icon.classList.toggle("fa-bars");
+          icon.classList.toggle("fa-times");
+        };
+        mobileToggle.addEventListener("click", toggleMenu);
+        navLinks.querySelectorAll("a").forEach((a) => {
+          a.addEventListener("click", () => {
+            if (navLinks.classList.contains("nav-active")) toggleMenu();
+          });
+        });
+
+        const revealObs = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("active");
+              obs.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+        );
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => revealObs.observe(el));
+
+        document.querySelectorAll(".faq-question").forEach((q) => {
+          q.addEventListener("click", () => {
+            const isOpen = q.classList.contains("active");
+            document
+              .querySelectorAll(".faq-question.active")
+              .forEach((open) => {
+                open.classList.remove("active");
+                open.nextElementSibling.style.maxHeight = null;
+              });
+            if (!isOpen) {
+              q.classList.add("active");
+              q.nextElementSibling.style.maxHeight =
+                q.nextElementSibling.scrollHeight + "px";
+            }
+          });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            const id = this.getAttribute("href");
+            if (id === "#") return;
+            const target = document.querySelector(id);
+            if (!target) return;
+            e.preventDefault();
+            const top =
+              target.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top, behavior: "smooth" });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
